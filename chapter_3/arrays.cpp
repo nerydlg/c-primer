@@ -51,6 +51,26 @@ void exercise3_5_1(){
 	// char st[11] = "fundamental"; // ERROR: not space for null
 }
 
+void multidimensionalArray() {
+	// we have array of array's
+	int mda[3][4] = {
+		{0, 1, 2, 3},
+		{4, 5, 6, 7},
+		{8, 9, 10, 11}
+	};
+
+	// Equivalent to the previous array
+	int mda2 [3][4] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+
+	// traverse the array
+	for(const auto &row : mda) {
+		for(const auto &col : row) {
+			cout << col << endl;
+		}
+	}
+
+}
+
 string sa[10];
 int intarray[10];
 
@@ -78,8 +98,11 @@ int main(){
 			printArray(sa2, 10);
 			printArray(intarray2, 10);
 			break;
+		case 4:
+			multidimensionalArray();
+			break;	
 		default:
-			cerr << "Input is not valid please enter a value bewteen 1-3" << endl;
+			cerr << "Input is not valid please enter a value bewteen 1-4" << endl;
 			break;
 	}
 	return 0;

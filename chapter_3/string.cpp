@@ -1,6 +1,9 @@
-#include<iostream>
-#include<string>
-
+#include <iostream>
+#include <string>
+// Include for c style strings
+#include <cstring>
+// we can also use:
+// using namespace std; // to include all of them
 using std::cin;
 using std::cout;
 using std::endl;
@@ -53,6 +56,17 @@ void exercise3_4(){
 	cout << acc;
 }
 
+void cStyleCharString() {
+	// DO NOT USE C-Style strings
+	// but here's how they operate
+	char cstr[] = {'c', '+',  '+', '\0'}; // creates a cstyle string "c++"
+	const char cstr2[] = "c++"; // this is equivalent to the above definition
+	// c-Style strings needs to be compared in another way
+	cout << "compare two strings " << strcmp(cstr, cstr2) << endl;
+	// to concat two strings add string 2 to string 1 so string 1 cannot be constant
+	cout << "concat two strings: " << strcat(cstr, cstr2) << endl;
+}
+
 int main()
 {
 	cout << "What exercise do you want to run:(default: 5) " << endl;
@@ -61,7 +75,7 @@ int main()
 	cout << "	3) Compare strings" << endl; 
 	cout << "	4) Concatenate strings" << endl; 
 	cout << "	5) Capitalize first letter" << endl; 
-	cout << "	6) exit" << endl; 
+	cout << "	6) c style strings" << endl; 
 	
 	int input = 5;
 	cin >> input;
@@ -86,9 +100,13 @@ int main()
 			cout << "Capitalize first letter of a string " << endl;
 			exercise3_5();
 			break;
+		case 6:
+			cout << "C-style character strings" << endl;
+			cStyleCharString();
+			break;
 	  default: 
-			cout << "bye";
+			cout << "Invalid input";
 			break;
 	}
 	return 0;
-}
+ }
